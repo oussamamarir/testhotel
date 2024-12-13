@@ -1,0 +1,69 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://reservation.com/ws"
+           targetNamespace="http://reservation.com/ws" elementFormDefault="qualified">
+
+    <xs:element name="GetReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservation" type="Reservation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="Client"/>
+                <xs:element name="chambre" type="Chambre"/>
+                <xs:element name="dateDebut" type="xs:date"/>
+                <xs:element name="dateFin" type="xs:date"/>
+                <xs:element name="preferences" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservation" type="Reservation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Reservation">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="client" type="Client"/>
+            <xs:element name="chambre" type="Chambre"/>
+            <xs:element name="dateDebut" type="xs:date"/>
+            <xs:element name="dateFin" type="xs:date"/>
+            <xs:element name="preferences" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Client">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="telephone" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Chambre">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="prix" type="xs:double"/>
+            <xs:element name="disponible" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
