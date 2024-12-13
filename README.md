@@ -1,2 +1,1 @@
-"# reservation-hotel" 
-"# reservation-services" 
+"# testhotel" 
